@@ -1,0 +1,1392 @@
+{
+	"info": {
+		"_postman_id": "7a7671de-8fff-4596-a49b-744d670e9427",
+		"name": "BPJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14320440"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Registration User/Add Profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"bpjs\",\r\n    \"password\": \"bpjs1\",\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/registration"
+					},
+					"response": [
+						{
+							"name": "Validasi Insert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"kris\",\r\n    \"password\": \"pass123\",\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"W\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/registration"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:45:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Gender hanya bisa diisi dengan L/P\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Validasi Username/Pass",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"pass123\",\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"W\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/registration"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:46:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Username/Password tidak boleh kosong\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Duplicate Username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"kris\",\r\n    \"password\": \"pass123\",\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/registration"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:46:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Username sudah digunakan user lain\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"bpjs\",\r\n    \"password\": \"bpjs1\",\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/registration"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:50:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Registrasi User\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"abc\",\r\n    \"password\" : \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/login"
+					},
+					"response": [
+						{
+							"name": "Wrong username/pass",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"abc\",\r\n    \"password\" : \"abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/login"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:50:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Username/Password salah\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Empty Pass/Username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"\",\r\n    \"password\" : \"abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/login"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:50:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Username/Password tidak boleh kosong\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"bpjs\",\r\n    \"password\" : \"bpjs1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 03:51:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "244"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Login berhasil\",\n        \"content\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user/profile"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/user/profile"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:01:18 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"Kristianto\",\r\n    \"last_name\": \"\",\r\n    \"gender\": \"L\",\r\n    \"telephone\": \"084396432974\",\r\n    \"email\": \"kris@gmail.com\",\r\n    \"address\": \"Tangerang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/user/profile"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:03:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengubah Data\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/user/profile"
+					},
+					"response": [
+						{
+							"name": "UnAuthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/user/profile"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:15:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8080/user/profile"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 05:34:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengambil Data\",\n        \"content\": {\n            \"first_name\": \"Kristianto\",\n            \"last_name\": \"\",\n            \"gender\": \"L\",\n            \"telephone\": \"084396432974\",\n            \"email\": \"kris@gmail.com\",\n            \"address\": \"Tangerang\",\n            \"created_at\": \"2024-11-19 10:50:13\",\n            \"updated_at\": \"2024-11-19 10:50:13\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Skill",
+			"item": [
+				{
+					"name": "Insert Skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skill\" : \"Coding\",\r\n    \"level\" : \"Advanced\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/skills"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"skill\" : \"\",\r\n    \"level\" : \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/skills"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:46:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Validasi",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"skill\" : \"\",\r\n    \"level\" : \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/skills?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"skills"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:47:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Skill/Level tidak boleh kosong\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"skill\" : \"Coding\",\r\n    \"level\" : \"Advanced\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/skills?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"skills"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:49:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Menambahkan Data\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Skill",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skill\" : \"Phyton\",\r\n    \"level\" : \"Advanced\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/skills/1"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"skill\" : \"Coding\",\r\n    \"level\" : \"Advanced\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/skills/1"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:50:41 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Unknown SKill",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"skill\" : \"Coding\",\r\n    \"level\" : \"Advanced\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/skills/1"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 04:51:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"Id Skill tidak diketahui\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetDetail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/skills/1"
+					},
+					"response": [
+						{
+							"name": "Unathorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/skills/1"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 05:36:09 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8080/skills/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 05:37:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengambil Data\",\n        \"content\": {\n            \"id\": 1,\n            \"skill\": \"Coding\",\n            \"level\": \"Advanced\",\n            \"created_at\": \"2024-11-19 11:48:35\",\n            \"updated_at\": \"2024-11-19 11:48:35\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetList Skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/skills?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"skills"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unathorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/skills?page=1&limit=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"skills"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 05:53:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 401,\n        \"message\": \"Unauthorized\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/skills?page=1&limit=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"skills"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 05:54:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "545"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengambil Data\",\n        \"content\": [\n            {\n                \"id\": 1,\n                \"skill\": \"Coding\",\n                \"level\": \"Advanced\",\n                \"created_at\": \"2024-11-19 11:48:35\",\n                \"updated_at\": \"2024-11-19 11:48:35\"\n            },\n            {\n                \"id\": 2,\n                \"skill\": \"Coding\",\n                \"level\": \"Advanced\",\n                \"created_at\": \"2024-11-19 11:49:29\",\n                \"updated_at\": \"2024-11-19 11:49:29\"\n            },\n            {\n                \"id\": 3,\n                \"skill\": \"Coding\",\n                \"level\": \"Advanced\",\n                \"created_at\": \"2024-11-19 12:27:39\",\n                \"updated_at\": \"2024-11-19 12:27:39\"\n            },\n            {\n                \"id\": 4,\n                \"skill\": \"Phyton\",\n                \"level\": \"Advanced\",\n                \"created_at\": \"2024-11-19 12:27:53\",\n                \"updated_at\": \"2024-11-19 12:27:53\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Skill",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/skills/2"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDc0Njc5fQ.y2noRwAZw2d9fdYm3pLwOES0ovPKWMaGDJu5sQoW2IA",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8080/skills/2"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 06:07:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Menghapus Data\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Education",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"school\" : \"\",\r\n    \"level\" : \"\",\r\n    \"degree\" : \"\",\r\n    \"year_in\" : 2020,\r\n    \"year_out\" : 2024\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/education"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"school\" : \"SD 1 Tangerang\",\r\n    \"level\" : \"SD\",\r\n    \"degree\" : \"\",\r\n    \"year_in\" : 2020,\r\n    \"year_out\" : 2024\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/education"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:00:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Menambahkan Data\",\n        \"content\": null\n    }\n}"
+						},
+						{
+							"name": "Validasi",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"school\" : \"SD 1 Tangerang\",\r\n    \"level\" : \"SD\",\r\n    \"degree\" : \"\",\r\n    \"year_in\" : 2025,\r\n    \"year_out\" : 2024\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/education"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:01:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": false,\n        \"code\": 400,\n        \"message\": \"YearOut harus lebih besar dari yearIn\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetDetail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/education/1"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8080/education"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:07:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "246"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengambil Data\",\n        \"content\": [\n            {\n                \"id\": 1,\n                \"school\": \"SD 1 Tangerang\",\n                \"level\": \"SD\",\n                \"degree\": \"\",\n                \"year_in\": 2020,\n                \"year_out\": 2024,\n                \"created_at\": \"2024-11-19 14:00:48\",\n                \"updated_at\": \"2024-11-19 14:00:48\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/education?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"education"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/education?page=1&limit=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"education"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:09:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "409"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengambil Data\",\n        \"content\": [\n            {\n                \"id\": 1,\n                \"school\": \"SD 1 Tangerang\",\n                \"level\": \"SD\",\n                \"degree\": \"\",\n                \"year_in\": 2020,\n                \"year_out\": 2024,\n                \"created_at\": \"2024-11-19 14:00:48\",\n                \"updated_at\": \"2024-11-19 14:00:48\"\n            },\n            {\n                \"id\": 2,\n                \"school\": \"SMP 1 Tangerang\",\n                \"level\": \"SMP\",\n                \"degree\": \"\",\n                \"year_in\": 2020,\n                \"year_out\": 2024,\n                \"created_at\": \"2024-11-19 14:09:12\",\n                \"updated_at\": \"2024-11-19 14:09:12\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/education/1"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8080/education/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:10:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Menghapus Data\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"school\" : \"SDN 1 Tangerang\",\r\n    \"level\" : \"SD\",\r\n    \"degree\" : \"\",\r\n    \"year_in\" : 2020,\r\n    \"year_out\" : 2024\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/education/3"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJicGpzIiwibmFtZSI6IktyaXN0aWFudG8gIiwiZXhwIjoxNzMyMDg1MjI5fQ.gvnjbg_MIakxIWILwGMYm0h7PY4-CNmxLEfJi_v03NU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"school\" : \"SDN 1 Tangerang\",\r\n    \"level\" : \"SD\",\r\n    \"degree\" : \"\",\r\n    \"year_in\" : 2020,\r\n    \"year_out\" : 2024\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/education/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 07:19:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bpjs\": {\n        \"success\": true,\n        \"code\": 200,\n        \"message\": \"Berhasil Mengubah Data\",\n        \"content\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
