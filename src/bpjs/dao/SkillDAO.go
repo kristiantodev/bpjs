@@ -84,7 +84,7 @@ func (input skillDAO) GetSkillList(db *sql.DB, param CustomQueryModel) (results 
 	params = append(params, param.Id)
 
 	if param.Keyword != "" {
-		query += " WHERE skill LIKE ?"
+		query += " AND skill LIKE ?"
 		params = append(params, "%"+param.Keyword+"%")
 	}
 

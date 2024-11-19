@@ -92,7 +92,7 @@ func (input educationDAO) GetEducationList(db *sql.DB, param CustomQueryModel) (
 	params = append(params, param.Id)
 
 	if param.Keyword != "" {
-		query += " WHERE skill LIKE ?"
+		query += " AND school LIKE ?"
 		params = append(params, "%"+param.Keyword+"%")
 	}
 
